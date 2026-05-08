@@ -82,3 +82,13 @@ Thumbs.db
 
 # Deploy artifacts
 .deploy/
+
+# Local chat/screenshot artifacts
+assets/
+
+# Generated backend reports
+server/reports/
+
+# SQLite runtime files
+*.db-wal
+*.db-shm
