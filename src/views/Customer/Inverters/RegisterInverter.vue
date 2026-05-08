@@ -249,7 +249,7 @@ const flatpickrDateConfig = computed(() => ({
   enableTime: false,
   dateFormat: 'Y-m-d',
   altFormat: 'd/m/Y',
-  mode: 'single',
+  mode: 'single' as const,
   static: false,
   inline: false,
   // Enable native mobile picker - flatpickr will automatically use native date input on mobile
@@ -278,7 +278,7 @@ const flatpickrDateConfig = computed(() => ({
         'Tháng 12',
       ],
     },
-  },
+  } as any,
 }))
 
 const submitting = ref(false)
