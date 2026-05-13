@@ -16,8 +16,10 @@
     "format": "prettier --write src/",
     "deploy": "npm run build && gh-pages -d dist",
     "build:gh-pages": "NODE_ENV=production npm run build",
-    "lan": "powershell -ExecutionPolicy Bypass -File ./get-local-ip.ps1",
-    "lan:open": "powershell -ExecutionPolicy Bypass -File ./get-local-ip.ps1 -Open"
+    "lan": "node ./scripts/print-lan-urls.mjs",
+    "lan:open": "node ./scripts/print-lan-urls.mjs --open",
+    "lan:win": "powershell -ExecutionPolicy Bypass -File ./get-local-ip.ps1",
+    "lan:win:open": "powershell -ExecutionPolicy Bypass -File ./get-local-ip.ps1 -Open"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.15",
