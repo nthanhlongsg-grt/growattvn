@@ -1,8 +1,9 @@
 import { getApiBaseUrl } from '@/utils/apiUrl'
 
-/** Luôn đọc theo hostname hiện tại (quan trọng khi vào app qua IP LAN). */
+/** Gốc API luôn kết thúc bằng .../api (tránh double /api khi getApiBaseUrl đã có /api). */
 function apiRoot(): string {
-  return `${getApiBaseUrl()}/api`
+  const base = getApiBaseUrl().replace(/\/api\/?$/, '')
+  return `${base}/api`
 }
 
 export interface ApiResponse<T> {
