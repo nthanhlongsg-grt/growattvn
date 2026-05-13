@@ -1,6 +1,9 @@
 import { getApiBaseUrl } from '@/utils/apiUrl'
 
-const API_BASE_URL = getApiBaseUrl() + '/api'
+/** Luôn đọc theo hostname hiện tại (quan trọng khi vào app qua IP LAN). */
+function apiRoot(): string {
+  return `${getApiBaseUrl()}/api`
+}
 
 export interface ApiResponse<T> {
   data?: T
@@ -8,12 +11,6 @@ export interface ApiResponse<T> {
 }
 
 class ApiClient {
-  private baseURL: string
-
-  constructor(baseURL: string) {
-    this.baseURL = baseURL
-  }
-
   private async request<T>(
     endpoint: string,
     options: RequestInit = {}
@@ -30,7 +27,7 @@ class ApiClient {
     }
 
     try {
-      const response = await fetch(`${this.baseURL}${endpoint}`, {
+      const response = await fetch(`${apiRoot()}${endpoint}`, {
         ...options,
         headers,
       })
@@ -116,4 +113,4 @@ class ApiClient {
   }
 }
 
-export const apiClient = new ApiClient(API_BASE_URL)
+export const apiClient = new ApiClient()
