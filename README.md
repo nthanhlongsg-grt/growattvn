@@ -34,6 +34,16 @@ Hệ thống quản lý hậu mãi cho sản phẩm Growatt - Quản lý tickets
 - Node.js >= 18
 - npm hoặc yarn
 
+### Một lệnh (lần đầu: cài deps + migrate + tài khoản dev)
+
+Tại thư mục gốc repo (cùng cấp với `package.json` frontend):
+
+```bash
+npm run setup
+```
+
+Sau đó mở hai terminal: `cd server && npm run dev` và `npm run dev`.
+
 ### Cài đặt Backend
 
 ```bash
